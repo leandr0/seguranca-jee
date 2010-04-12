@@ -66,6 +66,10 @@ public class Funcionario implements EntityBasic {
 	@JoinColumn(name = "SEGURANCA_ID" , nullable = false)
 	private Seguranca  seguranca;
 	
+	@Column(name = "NOME", nullable = false)
+	@NotNull(message = "O campo nome deve ser preenchido")
+	private String nome;
+	
 	/* (non-Javadoc)
 	 * @see br.com.fiap.seguranca.domain.entity.EntityBasic#getId()
 	 */
@@ -150,5 +154,19 @@ public class Funcionario implements EntityBasic {
 	 */
 	public void setSeguranca(Seguranca seguranca) {
 		this.seguranca = seguranca;
+	}
+
+	/**
+	 * @return the nome
+	 */
+	public String getNome() {
+		return nome;
+	}
+
+	/**
+	 * @param nome the nome to set
+	 */
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 }
