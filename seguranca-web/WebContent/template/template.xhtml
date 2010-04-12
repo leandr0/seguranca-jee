@@ -33,12 +33,27 @@
 		<div id="menu" style="width: 100%;">
 			<a4j:form>						
 				<rich:toolBar width="100%" itemSeparator="line" >
-					<rich:toolBarGroup>
-						FIAP SEGURANÇA
+					<rich:toolBarGroup location="left">
+						<rich:dropDownMenu>
+							<f:facet name="label">
+								<h:outputLabel value="Menu Principal"></h:outputLabel>
+							</f:facet>
+							<rich:menuItem action="cadastrar-funcionario" 
+								value="Cadastrar Funcionario"
+								submitMode="ajax"/>
+							<rich:menuItem action="#{promover_funcionario_mb.listarFuncionarios}" 
+								value="Promover Funcionario"
+								submitMode="ajax"/>	
+							<rich:menuItem action="#{excluir_funcionario_mb.listarFuncionarios}" 
+								value="Excluir Funcionario"
+								submitMode="ajax"/>		
+						</rich:dropDownMenu>	
 					</rich:toolBarGroup>
 					<rich:toolBarGroup location="right">
 						<a4j:commandButton value="Logout" 
-							action="#{login_mb.logout}"/>
+							action="#{login_mb.logout}"
+							image="/resources/images/logout.png"
+							title="Logout"/>
 					</rich:toolBarGroup>
 				 </rich:toolBar>
 			</a4j:form>

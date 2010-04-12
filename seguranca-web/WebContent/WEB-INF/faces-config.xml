@@ -7,11 +7,40 @@
   <managed-bean-class>br.com.fiap.seguranca.web.managerbean.LoginMB</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
- 
+ <managed-bean>
+  <managed-bean-name>cadastrar_funcionario_mb</managed-bean-name>
+  <managed-bean-class>br.com.fiap.seguranca.web.managerbean.CadastrarFuncionarioMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>promover_funcionario_mb</managed-bean-name>
+  <managed-bean-class>br.com.fiap.seguranca.web.managerbean.PromoverFuncionarioMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>excluir_funcionario_mb</managed-bean-name>
+  <managed-bean-class>br.com.fiap.seguranca.web.managerbean.ExcluirFuncionarioMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
  <navigation-rule>
   <navigation-case>
    <from-outcome>menu</from-outcome>
    <to-view-id>/pages/menu.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>cadastrar-funcionario</from-outcome>
+   <to-view-id>/pages/cadastro/cadastar-funcionario.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>excluir-funcionario</from-outcome>
+   <to-view-id>/pages/exclusao/excluir-funcionario.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>promover-funcionario</from-outcome>
+   <to-view-id>/pages/promocao/promover-funcionario.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
  </navigation-rule>

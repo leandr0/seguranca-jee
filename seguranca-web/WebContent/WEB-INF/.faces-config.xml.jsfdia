@@ -5,8 +5,29 @@
    <PROCESS-ITEM-OUTPUT ID="menu::#pages#menu.xhtml" NAME="output"
     PATH="/pages/menu.xhtml" TARGET="rules:#pages#menu.xhtml"
     TITLE="menu" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="cadastrar-funcionario::#pages#cadastro#cadastar-funcionario.xhtml"
+    NAME="output1" PATH="/pages/cadastro/cadastar-funcionario.xhtml"
+    TARGET="rules:#pages#cadastro#cadastar-funcionario.xhtml"
+    TITLE="cadastrar-funcionario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="excluir-funcionario::#pages#exclusao#excluir-funcionario.xhtml"
+    NAME="output2" PATH="/pages/exclusao/excluir-funcionario.xhtml"
+    TARGET="rules:#pages#exclusao#excluir-funcionario.xhtml"
+    TITLE="excluir-funcionario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="promover-funcionario::#pages#promocao#promover-funcionario.xhtml"
+    NAME="output3" PATH="/pages/promocao/promover-funcionario.xhtml"
+    TARGET="rules:#pages#promocao#promover-funcionario.xhtml"
+    TITLE="promover-funcionario" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#menu.xhtml" PATH="/pages/menu.xhtml"
   SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#cadastro#cadastar-funcionario.xhtml"
+  PATH="/pages/cadastro/cadastar-funcionario.xhtml" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#exclusao#excluir-funcionario.xhtml"
+  PATH="/pages/exclusao/excluir-funcionario.xhtml" SHAPE="272,321,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#promocao#promover-funcionario.xhtml"
+  PATH="/pages/promocao/promover-funcionario.xhtml" SHAPE="288,465,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
