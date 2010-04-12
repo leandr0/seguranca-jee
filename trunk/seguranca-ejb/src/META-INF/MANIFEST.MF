@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: seguranca-domain.jar 
+ seguranca-ejb-client.jar 
+ seguranca-login.jar 
+ seguranca-validator.jar
+
