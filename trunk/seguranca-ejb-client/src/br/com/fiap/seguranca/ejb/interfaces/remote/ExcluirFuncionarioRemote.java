@@ -12,21 +12,20 @@ import br.com.fiap.seguranca.domain.entity.Funcionario;
 
 /**
  * @author leandro.goncalves
- * Interface Remota para promover funcionario
+ *
  */
 @Remote
-public interface PromoverFuncionarioRemote {
+public interface ExcluirFuncionarioRemote {
 
 	/**
-	 * Método reponsável pela promoção de um funcionário para gerente
+	 * Excluir o funcionario informado como parâmetro
 	 * @param funcionario {@link Funcionario}
-	 * @return {@link Funcionario}
 	 * @throws EJBException
 	 */
-	public Funcionario promoverFucionarioGerente(Funcionario funcionario) throws EJBException;
+	public void excluirFuncionario(Funcionario funcionario) throws EJBException;
 	
 	/**
-	 * Método responsável por devolver todos funcionários cadastrados
+	 * Lista todos os funcionarios
 	 * @return {@link List} < {@link Funcionario} >
 	 * @throws EJBException
 	 */
