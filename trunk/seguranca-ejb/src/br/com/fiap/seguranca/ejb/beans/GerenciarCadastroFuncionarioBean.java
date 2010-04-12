@@ -10,6 +10,8 @@ import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateful;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.jboss.security.annotation.SecurityDomain;
 
 import br.com.fiap.seguranca.domain.entity.Funcionario;
@@ -32,14 +34,19 @@ public class GerenciarCadastroFuncionarioBean extends BeanValidator implements C
 	@EJB
 	private FuncionarioDAO funcionarioDAO;
 	
+	private static final Log LOG = LogFactory.getLog(GerenciarCadastroFuncionarioBean.class);
+	
 	@Override
 	@PermitAll
 	public Funcionario cadastrarFuncionario(Funcionario funcionario)throws EJBException {
 		
+		LOG.info("Iniciando cadastro de funcionario");
+		
 		validator = new CadastrarFuncionarioValidator();
 
 		funcionario.setPerfil(PerfilFuncionario.FUNCIONARIO);
-		
+
+		LOG.info("Validando dados do funcionario");
 		messageValidator = validator.validar(funcionario);
 		
 		if(messageValidator != null)
@@ -47,6 +54,7 @@ public class GerenciarCadastroFuncionarioBean extends BeanValidator implements C
 		else
 			valid = true;
 		
+		LOG.info("Cadastrando funcionario");
 		return funcionarioDAO.insert(funcionario);
 
 	}
