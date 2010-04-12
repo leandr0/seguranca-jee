@@ -11,7 +11,8 @@ import br.com.fiap.seguranca.web.model.CadastrarFuncionarioModel;
 
 /**
  * @author leandro.goncalves
- *
+ * Classe que gerencia todas as requisoes da camada view
+ * para o cadastro de funcionarios
  */
 public class CadastrarFuncionarioMB extends ManagerBean{
 	
@@ -34,10 +35,7 @@ public class CadastrarFuncionarioMB extends ManagerBean{
 	}
 	
 	public String cadastrarFuncionario(){
-		
 		business.cadastrarFuncionario(model.getFuncionario());
-		
-		
 		return null;
 	}
 	
