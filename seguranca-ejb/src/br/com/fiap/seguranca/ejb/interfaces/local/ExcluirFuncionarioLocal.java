@@ -12,24 +12,22 @@ import br.com.fiap.seguranca.domain.entity.Funcionario;
 
 /**
  * @author leandro.goncalves
- * Interface Local para promover funcionario
+ *
  */
 @Local
-public interface PromoverFuncionarioLocal {
-
-	/**
-	 * Método reponsável pela promoção de um funcionário para gerente
-	 * @param funcionario {@link Funcionario}
-	 * @return {@link Funcionario}
-	 * @throws EJBException
-	 */
-	public Funcionario promoverFucionarioGerente(Funcionario funcionario) throws EJBException;
+public interface ExcluirFuncionarioLocal {
 	
 	/**
-	 * Método responsável por devolver todos funcionários cadastrados
+	 * Excluir o funcionario informado como parâmetro
+	 * @param funcionario {@link Funcionario}
+	 * @throws EJBException
+	 */
+	public void excluirFuncionario(Funcionario funcionario) throws EJBException;
+	
+	/**
+	 * Lista todos os funcionarios
 	 * @return {@link List} < {@link Funcionario} >
 	 * @throws EJBException
 	 */
 	public List<Funcionario> listarFuncionarios() throws EJBException;
-	
 }
