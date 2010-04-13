@@ -3,8 +3,11 @@
  */
 package br.com.fiap.seguranca.web.managerbean;
 
+import java.util.GregorianCalendar;
+
 import javax.ejb.EJB;
 
+import br.com.fiap.seguranca.ejb.interfaces.local.CadastrarFuncionarioLocal;
 import br.com.fiap.seguranca.ejb.interfaces.remote.CadastrarFuncionarioRemote;
 import br.com.fiap.seguranca.web.form.CadastrarFuncionarioForm;
 import br.com.fiap.seguranca.web.model.CadastrarFuncionarioModel;
@@ -21,7 +24,7 @@ public class CadastrarFuncionarioMB extends ManagerBean{
 	private CadastrarFuncionarioModel model;
 	
 	@EJB
-	private CadastrarFuncionarioRemote business;
+	private CadastrarFuncionarioLocal business;
 
 	
 	public CadastrarFuncionarioMB(){
@@ -35,6 +38,10 @@ public class CadastrarFuncionarioMB extends ManagerBean{
 	}
 	
 	public String cadastrarFuncionario(){
+		
+		GregorianCalendar calendar = new GregorianCalendar();
+		calendar.setTime(form.getDataNascimento());
+		model.getFuncionario().setDataNascimento(calendar);
 		business.cadastrarFuncionario(model.getFuncionario());
 		return null;
 	}
