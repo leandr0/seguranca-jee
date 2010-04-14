@@ -1,10 +1,10 @@
 <html>
 	<head>
-		<title>FIAP BANK</title>
+		<title>FIAP - MÓDULO DE SEGURANÇA</title>
 	</head>
 	<body>
 		<form>
-			<div style="padding: 150px 300px 10px 500px;width: 300px;">
+			<div style="padding: 15% 5% 5% 40%;width: 300px;">
 				<div style="background : #F5F5F5;">
 				<fieldset>
 					<legend>Erro de acesso:</legend>
@@ -14,9 +14,9 @@
 								Desculpe, mas seu perfil não tem acesso área acessada. 
 							</h5>
 							<h5 >
-								Clique no link abaixo para voltar ao menu inicial. 
+								Clique no link abaixo para voltar à página inicial. 
 							</h5>
-							<a href="/fiap-bank-web/pages/menu.jsf">MENU</a>
+							<a href="/seguranca-web/pages/menu.jsf">MENU</a>
 						</div>
 					</fieldset>
 				</div>

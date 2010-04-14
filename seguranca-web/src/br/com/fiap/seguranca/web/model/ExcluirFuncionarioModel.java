@@ -14,6 +14,10 @@ public class ExcluirFuncionarioModel {
 
 	private Funcionario funcionario;
 
+	public ExcluirFuncionarioModel() {
+		this.funcionario = new Funcionario();
+	}
+	
 	/**
 	 * @return the funcionario
 	 */

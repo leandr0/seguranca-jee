@@ -1,4 +1,3 @@
-div {border: 1px solid red;}
 .div-dados{
 	background : #F5F5F5;
 	padding: 15px;
@@ -22,9 +21,6 @@ div {border: 1px solid red;}
 	font-size:11px;
 }
 
-#login{
-	 background:url(/web/resources/images/arearestrita.jpg) bottom no-repeat;
-}
 #mask{
   	Z-INDEX: 1;
 	LEFT: 0px;
@@ -51,7 +47,7 @@ div {border: 1px solid red;}
 
 #boxes #dialog {
   padding:10px;
-  background:url(/web/resources/images/ajax-loader.gif) no-repeat transparent center;
+  background:url(/seguranca-web/resources/images/ajax-loader.gif) no-repeat transparent center;
 }
 
 .data-table-column{

@@ -16,6 +16,8 @@ public class PromoverFuncionarioForm extends Form{
 
 	private List<Funcionario> funcionarios;
 
+	private Long idFuncionario;
+	
 	/**
 	 * @return the funcionarios
 	 */
@@ -28,5 +30,19 @@ public class PromoverFuncionarioForm extends Form{
 	 */
 	public void setFuncionarios(List<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
+	}
+
+	/**
+	 * @return the idFuncionario
+	 */
+	public Long getIdFuncionario() {
+		return idFuncionario;
+	}
+
+	/**
+	 * @param idFuncionario the idFuncionario to set
+	 */
+	public void setIdFuncionario(Long idFuncionario) {
+		this.idFuncionario = idFuncionario;
 	}
 }

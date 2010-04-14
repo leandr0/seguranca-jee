@@ -4,6 +4,7 @@
 package br.com.fiap.seguranca.web.model;
 
 import br.com.fiap.seguranca.domain.entity.Funcionario;
+import br.com.fiap.seguranca.domain.entity.Seguranca;
 
 /**
  * @author leandro.goncalves
@@ -18,7 +19,7 @@ public class CadastrarFuncionarioModel {
 	 * 
 	 */
 	public CadastrarFuncionarioModel() {
-		funcionario = new Funcionario();
+		funcionario = new Funcionario(new Seguranca());
 	}
 	
 	/**

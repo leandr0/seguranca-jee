@@ -3,7 +3,10 @@
  */
 package br.com.fiap.seguranca.web.form;
 
-import java.util.Date;
+import java.util.List;
+
+import br.com.fiap.seguranca.domain.entity.Funcionario;
+
 
 /**
  * @author leandro.goncalves
@@ -12,13 +15,35 @@ import java.util.Date;
  */
 public class CadastrarFuncionarioForm extends Form{
 
-	private Date dataNascimento;
+	private boolean dadosValidos;
 
-	public Date getDataNascimento() {
-		return dataNascimento;
+	private List<Funcionario> funcionarios;
+	
+	/**
+	 * @return the dadosValidos
+	 */
+	public boolean isDadosValidos() {
+		return dadosValidos;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	/**
+	 * @param dadosValidos the dadosValidos to set
+	 */
+	public void setDadosValidos(boolean dadosValidos) {
+		this.dadosValidos = dadosValidos;
+	}
+
+	/**
+	 * @return the funcionarios
+	 */
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+
+	/**
+	 * @param funcionarios the funcionarios to set
+	 */
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 }

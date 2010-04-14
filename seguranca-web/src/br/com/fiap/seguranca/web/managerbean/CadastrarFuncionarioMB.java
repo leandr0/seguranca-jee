@@ -3,12 +3,9 @@
  */
 package br.com.fiap.seguranca.web.managerbean;
 
-import java.util.GregorianCalendar;
-
 import javax.ejb.EJB;
 
 import br.com.fiap.seguranca.ejb.interfaces.local.CadastrarFuncionarioLocal;
-import br.com.fiap.seguranca.ejb.interfaces.remote.CadastrarFuncionarioRemote;
 import br.com.fiap.seguranca.web.form.CadastrarFuncionarioForm;
 import br.com.fiap.seguranca.web.model.CadastrarFuncionarioModel;
 
@@ -32,19 +29,54 @@ public class CadastrarFuncionarioMB extends ManagerBean{
 	}
 	
 	
-	private void inicializar(){
+	public String inicializar(){
+		
 		form  = new CadastrarFuncionarioForm();
 		model = new CadastrarFuncionarioModel();
+		
+		return "cadastrar-funcionario";
+	}
+	
+	public String novoUsuario(){
+		
+		model = new CadastrarFuncionarioModel();
+		
+		return null;
+	}
+	
+	public String validarDadosFuncionario(){
+		
+		form.setDadosValidos(business.validarFuncionario(model.getFuncionario()));
+		
+		form.setMensagem(business.getMessageValidator());
+		
+		return null;
 	}
 	
 	public String cadastrarFuncionario(){
 		
-		GregorianCalendar calendar = new GregorianCalendar();
-		calendar.setTime(form.getDataNascimento());
-		model.getFuncionario().setDataNascimento(calendar);
-		business.cadastrarFuncionario(model.getFuncionario());
+		if(form.isDadosValidos()){
+			business.cadastrarFuncionario(model.getFuncionario());
+		
+			form.setDadosValidos(business.isValid());
+			
+			if(!business.isValid())
+				form.setMensagem(business.getMessageValidator());
+		}
+		
+		novoUsuario();
+		carregarListaFuncionarios();
+		
 		return null;
 	}
+	
+	public String carregarListaFuncionarios(){
+		
+		form.setFuncionarios(business.listarFuncionarios());
+		
+		return "cadastrar-funcionario";
+	}
+	
 	
 	/**
 	 * @return the form

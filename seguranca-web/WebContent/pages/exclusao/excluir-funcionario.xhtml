@@ -14,8 +14,13 @@
 			<h:form id="form-excluir-funcionario">
 				
 					<a4j:outputPanel id="panel-excluir-funcionario">
+						<div id="div-lista-funcionario-exclusao">
+							<ui:include src="/pages/exclusao/lista-funcionario-exclusao.xhtml" />
+						</div>
+						<div id="div-excluir-funcionario-panel" style="display: none;">
+							<ui:include src="/pages/exclusao/excluir-funcionario-panel.xhtml" />
+						</div>
 					</a4j:outputPanel>
-					
 			</h:form>		
 		</ui:define>
 	</ui:composition>

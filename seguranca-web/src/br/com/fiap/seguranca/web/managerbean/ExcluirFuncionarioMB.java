@@ -5,6 +5,7 @@ package br.com.fiap.seguranca.web.managerbean;
 
 import javax.ejb.EJB;
 
+import br.com.fiap.seguranca.domain.entity.Funcionario;
 import br.com.fiap.seguranca.ejb.interfaces.local.ExcluirFuncionarioLocal;
 import br.com.fiap.seguranca.web.form.ExcluirFuncionarioForm;
 import br.com.fiap.seguranca.web.model.ExcluirFuncionarioModel;
@@ -40,8 +41,20 @@ public class ExcluirFuncionarioMB extends ManagerBean {
 	
 	public String excluirFuncionario(){
 		
+		
+		
 		business.excluirFuncionario(model.getFuncionario());
 		listarFuncionarios();
+		
+		return null;
+	}
+	
+	public String selecionarFuncionario(){
+		
+		for(Funcionario funcionario : form.getFuncionarios()){
+			if(funcionario.getId().equals(form.getIdFuncionario()))
+				model.setFuncionario(funcionario);
+		}
 		
 		return null;
 	}
