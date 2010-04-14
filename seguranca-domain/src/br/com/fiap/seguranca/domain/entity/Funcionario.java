@@ -3,7 +3,7 @@
  */
 package br.com.fiap.seguranca.domain.entity;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -43,32 +43,41 @@ public class Funcionario implements EntityBasic {
 	@Column(name = "ID")
 	private Long id;
 	
-	@Column(name = "PERFIL", nullable = false)
-	@NotEmpty(message = "O perfil do funcionário deve informado")
-	@Enumerated(EnumType.STRING)
-	private PerfilFuncionario perfil;
+	@Column(name = "NOME", nullable = false)
+	@NotEmpty(message = "O campo nome deve ser preenchido")
+	private String nome;
 	
 	@Column(name = "DATA_NASCIMENTO", nullable = false)
 	@Temporal(TemporalType.DATE)
 	@NotNull(message = "A data de nascimento deve ser informada")
-	private Calendar dataNascimento;
+	private Date dataNascimento;
 	
+	@Column(name = "E_MAIL", nullable = false)
+	@NotEmpty(message = "O campo e-mail deve ser preenchido")
+	@Email(message = "O campo e-mail deve ser preenchido corretamente")
+	private String email;
+
 	@Column(name = "TELEFONE", nullable = false)
 	@NotEmpty(message = "O telefone deve ser informado")
 	private String telefone;
 	
-	@Column(name = "E_MAIL", nullable = false)
-	@NotNull(message = "O campo e-mail deve ser preenchido")
-	@Email(message = "O campo e-mail deve ser preenchido corretamente")
-	private String email;
+	@Column(name = "PERFIL", nullable = false)
+	@Enumerated(EnumType.STRING)
+	@NotNull(message = "O perfil do funcionário deve informado")
+	private PerfilFuncionario perfil;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "SEGURANCA_ID" , nullable = false)
 	private Seguranca  seguranca;
 	
-	@Column(name = "NOME", nullable = false)
-	@NotNull(message = "O campo nome deve ser preenchido")
-	private String nome;
+	/**
+	 * 
+	 */
+	public Funcionario() {}
+	
+	public Funcionario(Seguranca seguranca) {
+		this.seguranca = seguranca;
+	}
 	
 	/* (non-Javadoc)
 	 * @see br.com.fiap.seguranca.domain.entity.EntityBasic#getId()
@@ -103,14 +112,14 @@ public class Funcionario implements EntityBasic {
 	/**
 	 * @return the dataNascimento
 	 */
-	public Calendar getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
 	/**
 	 * @param dataNascimento the dataNascimento to set
 	 */
-	public void setDataNascimento(Calendar dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
