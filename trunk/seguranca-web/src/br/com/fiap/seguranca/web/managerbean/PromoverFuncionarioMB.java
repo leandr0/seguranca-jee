@@ -5,6 +5,7 @@ package br.com.fiap.seguranca.web.managerbean;
 
 import javax.ejb.EJB;
 
+import br.com.fiap.seguranca.domain.entity.Funcionario;
 import br.com.fiap.seguranca.ejb.interfaces.local.PromoverFuncionarioLocal;
 import br.com.fiap.seguranca.web.form.PromoverFuncionarioForm;
 import br.com.fiap.seguranca.web.model.PromoverFuncionarioModel;
@@ -36,6 +37,8 @@ public class PromoverFuncionarioMB extends ManagerBean{
 		
 		business.promoverFucionarioGerente(model.getFuncionario());
 		
+		listarFuncionarios();
+		
 		return null;
 	}
 	
@@ -44,6 +47,16 @@ public class PromoverFuncionarioMB extends ManagerBean{
 		form.setFuncionarios(business.listarFuncionarios());
 		
 		return "promover-funcionario";
+	}
+	
+	public String selecionarFuncionario(){
+		
+		for(Funcionario funcionario : form.getFuncionarios()){
+			if(funcionario.getId().equals(form.getIdFuncionario()))
+				model.setFuncionario(funcionario);
+		}
+		
+		return null;
 	}
 	
 	/**

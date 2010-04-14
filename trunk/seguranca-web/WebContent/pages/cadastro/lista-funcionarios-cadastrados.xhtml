@@ -7,14 +7,14 @@
       xmlns:rich="http://richfaces.org/rich"
       xmlns:a4j="http://richfaces.org/a4j">
 
-	<a4j:outputPanel id="panel-lista-funcionario-exclusao">
-		<div class="div-dados" style="80%">
-			<rich:dataTable value="#{excluir_funcionario_mb.form.funcionarios}"
+	<a4j:outputPanel id="panel-lista-funcionario-cadastrados">
+		<div class="div-dados" style="80%;padding-top: 10px;">
+			<rich:dataTable value="#{cadastrar_funcionario_mb.form.funcionarios}"
 							var="funcionario"
-							rendered="#{not empty excluir_funcionario_mb.form.funcionarios}"
+							rendered="#{not empty cadastrar_funcionario_mb.form.funcionarios}"
 							width="100%"
 							align="center"
-							id="data-lista-funcionario-exclusao"
+							id="data-lista-funcionario-cadastrados"
 							columnClasses="data-table-column">
 				<rich:column>
 					<f:facet name="header">
@@ -36,23 +36,9 @@
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</h:outputText>
 				</rich:column>
-				<rich:column >
-					<f:facet name="header">
-						Excluir
-					</f:facet>
-					<a4j:commandButton action="#{excluir_funcionario_mb.selecionarFuncionario}" 
-										value="Excluir" 
-										reRender="panel-excluir-funcionario-dados"
-										onclick="showLoad();this.disable=true;"
-										oncomplete="hideLoad();this.disable=false;excluirFuncionario();">			
-								<a4j:actionparam assignTo="#{excluir_funcionario_mb.form.idFuncionario}" 
-	 										value="#{funcionario.id}"
-	 										name="form-id-funcionario"/>		 			 
-					</a4j:commandButton>
-				</rich:column>
 			</rich:dataTable>
-			<rich:datascroller for="data-lista-funcionario-exclusao" 
-				id="datascroller-lista-funcionario-exclusao" renderIfSinglePage="false"/>
+			<rich:datascroller for="data-lista-funcionario-cadastrados" 
+				id="datascroller-lista-funcionario-cadastrados" renderIfSinglePage="false"/>
 		</div>
 	</a4j:outputPanel>			
 </html>

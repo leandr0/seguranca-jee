@@ -14,6 +14,10 @@ public class PromoverFuncionarioModel {
 
 	private Funcionario funcionario;
 
+	public PromoverFuncionarioModel() {
+		this.funcionario = new Funcionario();
+	}
+	
 	/**
 	 * @return the funcionario
 	 */

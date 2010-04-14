@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+	
+	<a4j:outputPanel id="panel-dados-cadastro-funcionario">
+		<div class="div-dados" >
+			<h:panelGrid  columns="2">
+					<h:outputText value="Nome:" styleClass="label-input"/>
+					<h:panelGrid columns="2">
+						<h:inputText value="#{cadastrar_funcionario_mb.model.funcionario.nome}" />
+						<h:outputText value="*" styleClass="alert"/>
+					</h:panelGrid>
+										
+					<h:outputText value="Data Nascimento:" styleClass="label-input"/>
+					<h:panelGrid columns="2">
+						<rich:calendar value="#{cadastrar_funcionario_mb.model.funcionario.dataNascimento}" 
+							datePattern="dd/MM/yyyy"
+							enableManualInput="true" />
+						<h:outputText value="*" styleClass="alert"/>
+					</h:panelGrid>	
+										
+					<h:outputText value="e-mail:" styleClass="label-input"/>
+					<h:panelGrid columns="2">
+						<h:inputText value="#{cadastrar_funcionario_mb.model.funcionario.email}" />
+						<h:outputText value="*" styleClass="alert"/>
+					</h:panelGrid>
+																			
+					<h:outputText value="Telefone:" styleClass="label-input"/>
+						<h:panelGrid columns="2">
+							<h:inputText value="#{cadastrar_funcionario_mb.model.funcionario.telefone}" />
+						<h:outputText value="*" styleClass="alert"/>
+					</h:panelGrid>								
+			</h:panelGrid>
+			<div style="padding-left:16%;padding-top:10px;">						
+				<a4j:commandButton action="#{cadastrar_funcionario_mb.validarDadosFuncionario}" 
+					reRender="panel-cadastro-senha-funcionario"
+					value="Confirmar" 
+					title="Confirmar"
+					onclick="showLoad();this.disable=true;"
+					oncomplete="Richfaces.showModalPanel('cadastro-senha-funcionario-panel');hideLoad();this.disable=false;"/>
+			</div>
+			<div style="margin-top: 10px; display: table; width: 100%">
+				<div style="float: right;">
+					<h:outputText value="* Campos Obrigatórios  " styleClass="alert"/>
+				</div>						
+			</div>		
+		</div>
+	</a4j:outputPanel>
+
+</html>

@@ -3,9 +3,6 @@
 	<name>seguranca-web</name>
 	<comment></comment>
 	<projects>
-		<project>seguranca-domain</project>
-		<project>seguranca-ejb</project>
-		<project>seguranca-login</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

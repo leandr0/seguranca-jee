@@ -11,27 +11,26 @@
 				<h:form id="form-cadastrar-funcionario">
 				
 					<a4j:outputPanel id="panel-cadastrar-funcionario">
-								
-						<div id="div-cadastrar-funcionario">
+						
+						<div id="div-lista-funcionarios">
 							
-							<h:panelGrid  columns="2">
-								<h:outputText value="Nome:" />
-								<h:inputText value="#{cadastrar_funcionario_mb.model.funcionario.nome}" />
+							<ui:include src="/pages/cadastro/toolBar-cadastrar-funcionarios.xhtml" />
+							<ui:include src="/pages/cadastro/lista-funcionarios-cadastrados.xhtml" />
+							<a4j:outputPanel id="panel-mensagem-cadastro-funcionario">
+							<div align="center">
+								<h:outputText value="#{cadastrar_funcionario_mb.form.mensagem}" styleClass="alert"/>
+							</div>
+							</a4j:outputPanel>
+							
+						</div>
 								
-								<h:outputText value="Data Nascimento:" />
-								<rich:calendar value="#{cadastrar_funcionario_mb.form.dataNascimento}" 
-									datePattern="dd/MM/yyyy" showApplyButton="true"
-									enableManualInput="true" />
-								
-								<h:outputText value="e-mail:" />
-								<h:inputText value="#{cadastrar_funcionario_mb.model.funcionario.email}" />
-								
-								<h:outputText value="Telefone:" />
-								<h:inputText value="#{cadastrar_funcionario_mb.model.funcionario.telefone}" />
-							</h:panelGrid>						
-							<a4j:commandButton action="#{cadastrar_funcionario_mb.cadastrarFuncionario}"/>
+						<div id="div-cadastrar-funcionario" style="display: none;">
+							
+							<ui:include src="/pages/cadastro/cadastrar-funcionario-dados.xhtml" />
+																	
 						</div>
 					</a4j:outputPanel>
+					<ui:include src="/pages/cadastro/panel/cadastro-senha-panel.xhtml" />
 				</h:form>		
 		</ui:define>
 	</ui:composition>

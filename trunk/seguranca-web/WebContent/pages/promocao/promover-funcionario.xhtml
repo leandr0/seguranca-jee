@@ -10,6 +10,16 @@
 
 	<ui:composition template="/template/template.xhtml">
 		<ui:define name="body">
+			<h:form id="form-promover-funcionario">
+				<a4j:outputPanel id="panel-promover-funcionario">
+					<div id="div-lista-promover-funcionario">
+						<ui:include src="/pages/promocao/lista-funcionario-promocao.xhtml" />
+					</div>
+					<div id="div-promover-funcionario-dados" style="display: none;">
+						<ui:include src="/pages/promocao/promover-funcionario-panel.xhtml" />
+					</div>
+				</a4j:outputPanel>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 

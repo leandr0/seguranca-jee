@@ -23,6 +23,37 @@
 			<script type="text/javascript" src="/seguranca-web/resources/java-script/jquery/jquery.dimensions.min.js"></script>
 			<script type="text/javascript" src="/seguranca-web/resources/java-script/jquery/jquery.gradient.js"></script>
 			
+			<script type="text/javascript">
+
+				function salvarFuncionario(){
+					j('#div-cadastrar-funcionario').hide();
+					j('#div-lista-funcionarios').fadeIn(1500);
+				}
+				function novoFuncionario(){
+					j('#div-lista-funcionarios').hide();
+					j('#div-cadastrar-funcionario').fadeIn(1500);
+				}
+
+				function excluirFuncionario(){
+					j('#div-lista-funcionario-exclusao').hide();
+					j('#div-excluir-funcionario-panel').fadeIn(1500);
+				}
+				function listaExcluirFuncionario(){
+					j('#div-excluir-funcionario-panel').hide();
+					j('#div-lista-funcionario-exclusao').fadeIn(1500);
+				}
+
+				function promoverFuncionario(){
+					j('#div-lista-promover-funcionario').hide();
+					j('#div-promover-funcionario-dados').fadeIn(1500);
+				}
+				function listaPromoverFuncionario(){
+					j('#div-promover-funcionario-dados').hide();
+					j('#div-lista-promover-funcionario').fadeIn(1500);
+				}
+				
+			</script>
+			
 			<title>
 				<ui:insert name="title">
 					FIAP - MÓDULO DE SEGURANÇA
@@ -38,16 +69,24 @@
 							<f:facet name="label">
 								<h:outputLabel value="Menu Principal"></h:outputLabel>
 							</f:facet>
-							<rich:menuItem action="cadastrar-funcionario" 
+							<rich:menuItem action="#{cadastrar_funcionario_mb.carregarListaFuncionarios}" 
+								reRender="panel-cadastrar-funcionario"
 								value="Cadastrar Funcionario"
 								submitMode="ajax"/>
-							<rich:menuItem action="#{promover_funcionario_mb.listarFuncionarios}" 
+							<rich:menuItem action="#{promover_funcionario_mb.listarFuncionarios}"
+								reRender="panel-promover-funcionario , panel-lista-funcionario-promocao" 
 								value="Promover Funcionario"
 								submitMode="ajax"/>	
 							<rich:menuItem action="#{excluir_funcionario_mb.listarFuncionarios}" 
 								value="Excluir Funcionario"
 								submitMode="ajax"/>		
 						</rich:dropDownMenu>	
+					</rich:toolBarGroup>
+					<rich:toolBarGroup location="right">
+						<a4j:commandButton value="Página Inicial" 
+							action="menu"
+							image="/resources/images/home.gif"
+							title="Página Inicial"/>
 					</rich:toolBarGroup>
 					<rich:toolBarGroup location="right">
 						<a4j:commandButton value="Logout" 

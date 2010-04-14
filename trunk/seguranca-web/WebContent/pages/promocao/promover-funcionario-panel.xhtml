@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+	
+	<a4j:outputPanel id="panel-dados-promover-funcionario">
+				<div  style="margin-bottom: 10px;" class="div-dados">
+					
+					<h:panelGrid  columns="2">
+						<h:outputText value="Nome:" styleClass="label-input"/>
+						<h:inputText value="#{promover_funcionario_mb.model.funcionario.nome}" disabled="true"/>
+						<h:outputText value="Data Nascimento:" styleClass="label-input"/>
+						<rich:calendar value="#{promover_funcionario_mb.model.funcionario.dataNascimento}" 
+											datePattern="dd/MM/yyyy"
+											enableManualInput="true" disabled="true"/>
+						<h:outputText value="e-mail:" styleClass="label-input"/>
+						<h:inputText value="#{promover_funcionario_mb.model.funcionario.email}" disabled="true"/>											
+						<h:outputText value="Telefone:" styleClass="label-input"/>
+						<h:inputText value="#{promover_funcionario_mb.model.funcionario.telefone}" disabled="true"/>
+					</h:panelGrid>
+					
+				</div>
+				<div >
+					<h:panelGrid columns="2">
+						<a4j:commandButton 
+								action="#{promover_funcionario_mb.promoverFuncionario}"
+								reRender="panel-lista-funcionario-promocao"
+								onclick="showLoad();this.disable=true;"
+								oncomplete="hideLoad();this.disable=false;listaPromoverFuncionario();"
+								value="Confirmar"/>
+						<a4j:commandButton 
+								onclick="showLoad();this.disable=true;"
+								oncomplete="hideLoad();this.disable=false;listaPromoverFuncionario();"
+								value="Cancelar"/>
+					</h:panelGrid>			
+				</div>		
+	</a4j:outputPanel>
+</html>

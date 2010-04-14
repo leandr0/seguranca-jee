@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+      
+    <rich:modalPanel 	id="cadastro-senha-funcionario-panel" 
+    					width="350" 
+    					height="90" 
+    					autosized="true">
+
+    	<f:facet name="header">
+    		<h:panelGroup>
+    			<h:outputLabel value="Cadastro de Funcionário"/>
+    		</h:panelGroup>
+    	</f:facet>
+    	
+    	<f:facet name="controls">
+        	<h:panelGroup>
+            	<h:graphicImage value="/resources/images/close.png" style="cursor:pointer" id="close-cadastro-senha-funcionario-modal"/>
+               	<rich:componentControl 	for="cadastro-senha-funcionario-panel" 
+                						attachTo="close-cadastro-senha-funcionario-modal" 
+                						operation="hide" 
+                						event="onclick"/>
+            </h:panelGroup>
+        </f:facet> 
+	
+		<a4j:form id="form-cadastro-senha-funcionario">		
+			
+			<a4j:outputPanel id="panel-cadastro-senha-funcionario">
+				 
+				<div align="center" style="margin-bottom: 10px;" class="div-dados">
+					<h:panelGrid columns="2" rendered="#{cadastrar_funcionario_mb.form.dadosValidos}">
+						<h:outputLabel value="Login:" styleClass="label-input"/>
+						<h:panelGrid columns="2"> 
+							<h:inputText value="#{cadastrar_funcionario_mb.model.funcionario.seguranca.login}" />
+							<h:outputText value="*" styleClass="alert"/>
+						</h:panelGrid>
+						<h:outputLabel value="Senha:" />
+						<h:panelGrid columns="2"> 
+							<h:inputSecret value="#{cadastrar_funcionario_mb.model.funcionario.seguranca.senha}" />
+							<h:outputText value="*" styleClass="alert"/>
+						</h:panelGrid>
+					</h:panelGrid>
+					<h:outputText value="#{cadastrar_funcionario_mb.form.mensagem}" 
+						rendered="#{!cadastrar_funcionario_mb.form.dadosValidos}" styleClass="alert"/>
+				</div>
+				<div align="center">
+					<a4j:commandButton rendered="#{cadastrar_funcionario_mb.form.dadosValidos}"
+							action="#{cadastrar_funcionario_mb.cadastrarFuncionario}"
+							reRender="panel-cadastro-senha-funcionario , panel-lista-funcionario-cadastrados , panel-mensagem-cadastro-funcionario"
+							onclick="showLoad();this.disable=true;Richfaces.hideModalPanel('cadastro-senha-funcionario-panel');salvarFuncionario();"
+							oncomplete="hideLoad();this.disable=false;"
+							value="Salvar"/>
+							
+					<h:panelGrid columns="2" rendered="#{!cadastrar_funcionario_mb.form.dadosValidos}">
+						<a4j:commandButton 
+							onclick="showLoad();this.disable=true;Richfaces.hideModalPanel('cadastro-senha-funcionario-panel');"
+							oncomplete="hideLoad();this.disable=false;"
+							value="Editar Cadastro"/>
+						<a4j:commandButton 
+							action="menu"
+							onclick="showLoad();this.disable=true;Richfaces.hideModalPanel('cadastro-senha-funcionario-panel');salvarFuncionario();"
+							oncomplete="hideLoad();this.disable=false;"
+							value="Cancelar"/>	
+					</h:panelGrid>		
+				</div>		
+			</a4j:outputPanel>
+		</a4j:form>
+	</rich:modalPanel>			
+</html>

@@ -3,15 +3,6 @@
     <wb-module deploy-name="seguranca-web">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <dependent-module archiveName="seguranca-domain.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/seguranca-domain/seguranca-domain">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="seguranca-ejb.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/seguranca-ejb/seguranca-ejb">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="seguranca-login.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/seguranca-login/seguranca-login">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="context-root" value="seguranca-web"/>
         <property name="java-output-path" value="/seguranca-web/build/classes"/>
     </wb-module>
