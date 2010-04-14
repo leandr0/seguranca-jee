@@ -30,7 +30,7 @@ public abstract class GenericDAO<T extends EntityBasic> implements BasicDAO<T> {
 
 	@SuppressWarnings("unchecked")
 	public T find(T t) throws DAOException{
-		return (T) entityManager.find(t.getClass(), t);
+		return (T) entityManager.find(t.getClass(), t.getId());
 	}
 
 	public T insert(T t) throws DAOException{

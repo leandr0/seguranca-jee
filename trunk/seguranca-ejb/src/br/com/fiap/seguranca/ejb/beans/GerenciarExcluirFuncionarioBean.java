@@ -44,6 +44,9 @@ public class GerenciarExcluirFuncionarioBean implements ExcluirFuncionarioLocal,
 	public void excluirFuncionario(Funcionario funcionario) throws EJBException {
 		
 		LOG.info("Excluindo funcionario [ " +funcionario.getNome()+" ]");
+		
+		funcionario = funcionarioDAO.find(funcionario);
+		
 		funcionarioDAO.delete(funcionario);
 
 	}
