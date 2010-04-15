@@ -9,7 +9,7 @@ import javax.ejb.EJBException;
  * @author leandro.goncalves
  *
  */
-public class DAOException extends EJBException {
+public class GerenciadorException extends EJBException {
 
 	/**
 	 * 
@@ -19,14 +19,14 @@ public class DAOException extends EJBException {
 	/**
 	 * 
 	 */
-	public DAOException() {
+	public GerenciadorException() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * @param message
 	 */
-	public DAOException(String message) {
+	public GerenciadorException(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
@@ -34,7 +34,7 @@ public class DAOException extends EJBException {
 	/**
 	 * @param ex
 	 */
-	public DAOException(Exception ex) {
+	public GerenciadorException(Exception ex) {
 		super(ex);
 		// TODO Auto-generated constructor stub
 	}
@@ -43,7 +43,7 @@ public class DAOException extends EJBException {
 	 * @param message
 	 * @param ex
 	 */
-	public DAOException(String message, Exception ex) {
+	public GerenciadorException(String message, Exception ex) {
 		super(message, ex);
 		// TODO Auto-generated constructor stub
 	}
