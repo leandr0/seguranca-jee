@@ -4,6 +4,7 @@
 		<jta-data-source>java:/fiap-seguranca</jta-data-source>
 		<class>br.com.fiap.seguranca.domain.entity.Funcionario</class>
 		<class>br.com.fiap.seguranca.domain.entity.Seguranca</class>
+		<class>br.com.fiap.seguranca.domain.entity.FiapSegurancaLog</class>
 		
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
