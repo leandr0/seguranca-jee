@@ -11,6 +11,7 @@ import javax.ejb.EJBException;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -18,7 +19,8 @@ import org.jboss.security.annotation.SecurityDomain;
 
 import br.com.fiap.seguranca.domain.entity.Funcionario;
 import br.com.fiap.seguranca.domain.enums.PerfilFuncionario;
-import br.com.fiap.seguranca.ejb.dao.interfaces.FuncionarioDAO;
+import br.com.fiap.seguranca.ejb.gerenciador.interfaces.GerenciarFuncionario;
+import br.com.fiap.seguranca.ejb.interceptor.FiapSegurancaInterceptor;
 import br.com.fiap.seguranca.ejb.interfaces.local.PromoverFuncionarioLocal;
 import br.com.fiap.seguranca.ejb.interfaces.remote.PromoverFuncionarioRemote;
 
@@ -30,10 +32,11 @@ import br.com.fiap.seguranca.ejb.interfaces.remote.PromoverFuncionarioRemote;
 @Local(PromoverFuncionarioLocal.class)
 @Remote(PromoverFuncionarioRemote.class)
 @SecurityDomain("seguranca-fiap-custom")
+@Interceptors(FiapSegurancaInterceptor.class)
 public class GerenciarPromoverFuncionarioBean implements PromoverFuncionarioLocal, PromoverFuncionarioRemote{
 
 	@EJB
-	private FuncionarioDAO funcionarioDAO;
+	private GerenciarFuncionario gerenciarFuncionario;
 	
 	private static final Log LOG = LogFactory.getLog(GerenciarPromoverFuncionarioBean.class);
 	
@@ -46,7 +49,7 @@ public class GerenciarPromoverFuncionarioBean implements PromoverFuncionarioLoca
 		funcionario.setPerfil(PerfilFuncionario.GERENTE);
 		
 		LOG.info("Atualizando registro do funcionario");
-		funcionarioDAO.update(funcionario);
+		gerenciarFuncionario.update(funcionario);
 		
 		return funcionario;
 	}
@@ -55,6 +58,6 @@ public class GerenciarPromoverFuncionarioBean implements PromoverFuncionarioLoca
 	@RolesAllowed("GERENTE")
 	public List<Funcionario> listarFuncionarios() throws EJBException {
 		LOG.info("Listando funcionarios");
-		return funcionarioDAO.listarFuncionarios();
+		return gerenciarFuncionario.listarFuncionarios();
 	}	
 }
