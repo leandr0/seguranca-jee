@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="seguranca-ear">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="seguranca-domain.jar" deploy-path="/" handle="module:/resource/seguranca-domain/seguranca-domain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="seguranca-ejb.jar" deploy-path="/" handle="module:/resource/seguranca-ejb/seguranca-ejb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="seguranca-ejb-client.jar" deploy-path="/" handle="module:/resource/seguranca-ejb-client/seguranca-ejb-client">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="seguranca-login.jar" deploy-path="/" handle="module:/resource/seguranca-login/seguranca-login">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="seguranca-validator.jar" deploy-path="/" handle="module:/resource/seguranca-validator/seguranca-validator">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="seguranca-web.war" deploy-path="/" handle="module:/resource/seguranca-web/seguranca-web">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="seguranca-util.jar" deploy-path="/" handle="module:/resource/seguranca-util/seguranca-util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
