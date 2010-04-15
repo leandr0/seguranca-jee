@@ -12,6 +12,7 @@ import javax.ejb.EJBTransactionRolledbackException;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateful;
+import javax.interceptor.Interceptors;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -21,9 +22,11 @@ import org.jboss.security.annotation.SecurityDomain;
 import br.com.fiap.seguranca.domain.entity.EntityBasic;
 import br.com.fiap.seguranca.domain.entity.Funcionario;
 import br.com.fiap.seguranca.domain.enums.PerfilFuncionario;
-import br.com.fiap.seguranca.ejb.dao.interfaces.FuncionarioDAO;
+import br.com.fiap.seguranca.ejb.gerenciador.interfaces.GerenciarFuncionario;
+import br.com.fiap.seguranca.ejb.interceptor.FiapSegurancaInterceptor;
 import br.com.fiap.seguranca.ejb.interfaces.local.CadastrarFuncionarioLocal;
 import br.com.fiap.seguranca.ejb.interfaces.remote.CadastrarFuncionarioRemote;
+import br.com.fiap.seguranca.util.criptografia.CriptografiaUtil;
 import br.com.fiap.seguranca.validator.CadastrarFuncionarioValidator;
 
 /**
@@ -34,10 +37,11 @@ import br.com.fiap.seguranca.validator.CadastrarFuncionarioValidator;
 @Local(CadastrarFuncionarioLocal.class)
 @Remote(CadastrarFuncionarioRemote.class)
 @SecurityDomain("seguranca-fiap-custom")
+@Interceptors(FiapSegurancaInterceptor.class)
 public class GerenciarCadastroFuncionarioBean extends BeanValidator implements CadastrarFuncionarioLocal,CadastrarFuncionarioRemote{
 
 	@EJB
-	private FuncionarioDAO funcionarioDAO;
+	private GerenciarFuncionario gerenciarFuncionario;
 
 	private static final Log LOG = LogFactory.getLog(GerenciarCadastroFuncionarioBean.class);
 
@@ -56,7 +60,9 @@ public class GerenciarCadastroFuncionarioBean extends BeanValidator implements C
 			if(valid){
 
 				LOG.info("Cadastrando funcionario");
-				funcionario = funcionarioDAO.insert(funcionario);
+				funcionario.getSeguranca().setSenha(
+						CriptografiaUtil.criptografar(funcionario.getSeguranca().getSenha()));
+				funcionario = gerenciarFuncionario.insert(funcionario);
 				
 				valid = true;
 				
@@ -132,6 +138,6 @@ public class GerenciarCadastroFuncionarioBean extends BeanValidator implements C
 	@PermitAll
 	public List<Funcionario> listarFuncionarios() throws EJBException {
 		LOG.info("Listando funcionarios");
-		return funcionarioDAO.listarFuncionarios();
+		return gerenciarFuncionario.listarFuncionarios();
 	}
 }
