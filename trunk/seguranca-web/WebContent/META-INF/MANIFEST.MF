@@ -3,5 +3,6 @@ Class-Path: seguranca-domain.jar
  seguranca-ejb-client.jar 
  seguranca-ejb.jar 
  seguranca-login.jar 
- seguranca-validator.jar
+ seguranca-validator.jar 
+ seguranca-util.jar
 
